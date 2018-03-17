@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CheckInApp</string>
+    <string name="scan">Scan</string>
+    <string name="pull">Pull Data</string>
+</resources>
