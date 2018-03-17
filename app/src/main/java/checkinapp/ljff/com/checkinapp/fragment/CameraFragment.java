@@ -1,5 +1,6 @@
 package checkinapp.ljff.com.checkinapp.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.google.zxing.Result;
 
+import checkinapp.ljff.com.checkinapp.activity.ProfileActivity;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 /**
@@ -40,6 +42,12 @@ public class CameraFragment extends Fragment implements ZXingScannerView.ResultH
     }
 
     @Override
+    public void onResume(){
+        super.onResume();
+        scannerView.resumeCameraPreview(this);
+    }
+
+    @Override
     public void onPause(){
         super.onPause();
         scannerView.stopCamera();
@@ -47,9 +55,10 @@ public class CameraFragment extends Fragment implements ZXingScannerView.ResultH
 
     @Override
     public void handleResult(Result result) {
-        String resultCode = result.getText();
-        //Toast.makeText(getActivity(), resultCode, Toast.LENGTH_SHORT).show();
-//        setContentView(R.layout.activity_main);
+        String studentId = result.getText();
         scannerView.stopCamera();
+        Intent intent = new Intent(getActivity(), ProfileActivity.class);
+        intent.putExtra("studentId", studentId);
+        getActivity().startActivity(intent);
     }
 }
