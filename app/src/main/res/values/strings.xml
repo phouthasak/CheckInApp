@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">CheckInApp</string>
-    <string name="scan">Scan</string>
-    <string name="pull">Pull Data</string>
+    <string name="admin">Admin</string>
+    <string name="back">Back</string>
+    <string name="numberOfStudentsCheckedInOnDevice">Number of students checked in on device: </string>
+    <string name="studentRecordInMemory"> student records memory</string>
+    <string name="pushData">Push Data</string>
+    <string name="pullData">Pull Data</string>
+    <string name="pushDataAfterEvent">Note: Push data after event</string>
+    <string name="pullDataBeforeEvent">Note: Pull data before event</string>
 </resources>

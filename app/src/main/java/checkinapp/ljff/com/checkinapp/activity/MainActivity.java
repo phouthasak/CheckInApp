@@ -1,5 +1,6 @@
 package checkinapp.ljff.com.checkinapp.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,11 @@ public class MainActivity extends AppCompatActivity{
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(1);
         viewPager.addOnPageChangeListener(listener);
+    }
+
+    public void goToAdminPage(View view){
+        Intent intent = new Intent(this, AdminActivity.class);
+        startActivity(intent);
     }
 
     ViewPager.OnPageChangeListener listener = new ViewPager.OnPageChangeListener() {

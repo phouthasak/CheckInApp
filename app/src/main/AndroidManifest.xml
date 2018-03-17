@@ -26,6 +26,11 @@
             android:theme="@style/FullScreenTheme"
             >
         </activity>
+
+        <activity android:name=".activity.AdminActivity"
+            android:theme="@style/FullScreenTheme"
+            >
+        </activity>
     </application>
 
 </manifest>

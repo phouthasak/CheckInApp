@@ -13,11 +13,27 @@
         android:background="@color/ljffGreen"
         android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/btnAdmin"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.22"
+            android:background="@color/ljffGold"
+            android:maxHeight="50dp"
+            android:maxWidth="50dp"
+            android:minHeight="50dp"
+            android:minWidth="50dp"
+            android:onClick="goToAdminPage"
+            android:text="@string/admin"
+            android:textColor="@color/ljffGreen" />
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:translationX="-50dp"
             app:srcCompat="@drawable/ljfflogo" />
 
     </LinearLayout>
@@ -27,14 +43,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/landingStudentCount"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/tvEventName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_weight="1"
-            android:text="LandingPage"
+            android:gravity="fill_vertical"
+            android:text="Event Name"
+            android:textAlignment="center"
+            android:textColor="@color/ljffGreen"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvStudentRecordCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="fill_vertical"
+            android:text="@string/studentRecordInMemory"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tvStudentCheckInCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:gravity="fill_vertical"
+            android:text="@string/numberOfStudentsCheckedInOnDevice"
+            android:textAlignment="center"
+            android:textColor="#000000"
             android:textSize="24sp" />
     </LinearLayout>
 
