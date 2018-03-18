@@ -8,4 +8,6 @@
     <string name="pullData">Pull Data</string>
     <string name="pushDataAfterEvent">Note: Push data after event</string>
     <string name="pullDataBeforeEvent">Note: Pull data before event</string>
+    <string name="pushDataWarning">You are about to upload the check-in data on this device into the database. Are you sure you want to continue?</string>
+    <string name="pullDataWarning">"You are about to import student data on this device from the database. Are you sure you want to continue?</string>
 </resources>

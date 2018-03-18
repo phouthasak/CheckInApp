@@ -84,7 +84,8 @@
                     android:layout_gravity="center_horizontal"
                     android:width="100dp"
                     android:height="25dp"
-                    android:text="@string/pullData"
+                    android:onClick="pushData"
+                    android:text="@string/pushData"
                     android:textAlignment="center" />
 
                 <TextView
@@ -122,7 +123,8 @@
                     android:layout_gravity="center_horizontal"
                     android:width="100dp"
                     android:height="25dp"
-                    android:text="@string/pushData"
+                    android:onClick="pullData"
+                    android:text="@string/pullData"
                     android:textAlignment="center" />
 
                 <TextView
