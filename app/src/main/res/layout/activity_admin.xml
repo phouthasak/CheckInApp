@@ -78,7 +78,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btnPull"
+                    android:id="@+id/btnPushData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -117,7 +117,7 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btnPushData"
+                    android:id="@+id/btnPullData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"

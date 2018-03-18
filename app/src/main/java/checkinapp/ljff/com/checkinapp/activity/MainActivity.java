@@ -1,8 +1,10 @@
 package checkinapp.ljff.com.checkinapp.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -28,9 +30,26 @@ public class MainActivity extends AppCompatActivity{
         viewPager.addOnPageChangeListener(listener);
     }
 
-    public void goToAdminPage(View view){
-        Intent intent = new Intent(this, AdminActivity.class);
-        startActivity(intent);
+    public void goToAdminPage(final View view){
+        DialogInterface.OnClickListener adminDialogClickListener = new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int which){
+                switch (which){
+                    case DialogInterface.BUTTON_POSITIVE:
+                        Intent intent = new Intent(view.getContext(),AdminActivity.class);
+                        startActivity(intent);
+                        break;
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        builder.setMessage(R.string.adminWarning)
+                .setPositiveButton("Yes", adminDialogClickListener)
+                .setNegativeButton("No", adminDialogClickListener)
+                .show();
     }
 
     ViewPager.OnPageChangeListener listener = new ViewPager.OnPageChangeListener() {
