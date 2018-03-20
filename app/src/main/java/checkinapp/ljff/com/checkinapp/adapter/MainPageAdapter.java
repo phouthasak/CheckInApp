@@ -22,14 +22,16 @@ public class MainPageAdapter extends FragmentPagerAdapter{
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                CameraFragment cameraFragment = new CameraFragment();
-                return cameraFragment;
-            case 1:
                 LandingFragment landingFragment = new LandingFragment();
                 return landingFragment;
-            case 2:
+
+            case 1:
                 SearchFragment searchFragment = new SearchFragment();
                 return searchFragment;
+            case 2:
+                CameraFragment cameraFragment = new CameraFragment();
+                return cameraFragment;
+
         }
         return null;
     }

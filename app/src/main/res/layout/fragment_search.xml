@@ -29,13 +29,28 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/studentSearch"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="SearchPage"
-            android:textSize="24sp" />
+            android:orientation="vertical">
+
+            <SearchView
+                android:id="@+id/svSearchBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|left"
+                android:background="@color/grey"
+                android:minHeight="50dp"
+                app:iconifiedByDefault="false"
+                app:queryHint="@string/search" />
+
+            <ListView
+                android:id="@+id/lvStudentList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></ListView>
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout

@@ -11,4 +11,5 @@
     <string name="pushDataWarning">You are about to upload the check-in data on this device into the database. Are you sure you want to continue?</string>
     <string name="pullDataWarning">"You are about to import student data on to this device from the database. Are you sure you want to continue?</string>
     <string name="adminWarning">You are entering the admin page, do you want to continue?</string>
+    <string name="search">Search</string>
 </resources>
