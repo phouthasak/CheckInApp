@@ -12,4 +12,7 @@
     <string name="pullDataWarning">"You are about to import student data on to this device from the database. Are you sure you want to continue?</string>
     <string name="adminWarning">You are entering the admin page, do you want to continue?</string>
     <string name="search">Search</string>
+    <string name="studentID">StudentID:</string>
+    <string name="lastName">LastName:</string>
+    <string name="firstName">FirstName:</string>
 </resources>
