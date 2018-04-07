@@ -16,4 +16,9 @@
     <string name="lastName">LastName:</string>
     <string name="firstName">FirstName:</string>
     <string name="studentNotFound">StudentID cannot be found</string>
+    <string name="schoolName">SchoolName:</string>
+    <string name="mediaWavier">Media Wavier:</string>
+    <string name="guest">Guests:</string>
+    <string name="checkInComplete">Check-in complete</string>
+    <string name="checkIn">Check In</string>
 </resources>
