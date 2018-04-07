@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity{
 
         View background = (View) findViewById(R.id.am_background_view);
         viewPager = (ViewPager) findViewById(R.id.am_view_pager);
+        viewPager.setOffscreenPageLimit(2);
         adapter = new MainPageAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(listener);

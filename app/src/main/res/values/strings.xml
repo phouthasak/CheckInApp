@@ -15,4 +15,5 @@
     <string name="studentID">StudentID:</string>
     <string name="lastName">LastName:</string>
     <string name="firstName">FirstName:</string>
+    <string name="studentNotFound">StudentID cannot be found</string>
 </resources>
