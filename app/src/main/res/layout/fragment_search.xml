@@ -45,10 +45,11 @@
                 app:iconifiedByDefault="false"
                 app:queryHint="@string/search" />
 
-            <ListView
-                android:id="@+id/lvStudentList"
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvStudentList"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></ListView>
+                android:layout_height="wrap_content"
+                android:scrollbars="vertical"></android.support.v7.widget.RecyclerView>
         </LinearLayout>
 
     </LinearLayout>

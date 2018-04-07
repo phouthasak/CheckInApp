@@ -1,10 +1,9 @@
 package checkinapp.ljff.com.checkinapp.adapter;
 
-import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
@@ -16,25 +15,39 @@ import checkinapp.ljff.com.checkinapp.entity.Student;
  * Created by Phouthasak Douanglee on 3/30/2018.
  */
 
-public class StudentListViewAdapter extends ArrayAdapter<Student> {
-    private TextView tvStudentId, tvLastName, tvFirstName;
-    public StudentListViewAdapter(Context context, List<Student> students) {
-        super(context, R.layout.list_item, students);
+public class StudentListViewAdapter extends RecyclerView.Adapter<StudentListViewAdapter.ViewHolder> {
+    private List<Student> students;
+
+    public StudentListViewAdapter(List<Student> students) {
+        this.students = students;
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder{
+        public TextView tvStudentId, tvLastName, tvFirstName;
+        public ViewHolder(View view){
+            super(view);
+            tvStudentId = view.findViewById(R.id.tvStudentID);
+            tvLastName = view.findViewById(R.id.tvLastName);
+            tvFirstName = view.findViewById(R.id.tvFirstName);
+        }
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        View view = inflater.inflate(R.layout.list_item, parent, false);
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
+        return new ViewHolder(view);
+    }
 
-        Student student = getItem(position);
-        tvStudentId = view.findViewById(R.id.tvStudentID);
-        tvLastName = view.findViewById(R.id.tvLastName);
-        tvFirstName = view.findViewById(R.id.tvFirstName);
+    @Override
+    public void onBindViewHolder(StudentListViewAdapter.ViewHolder holder, int position) {
+        Student student = students.get(position);
+        holder.tvStudentId.setText(String.valueOf(student.getStudentId()));
+        holder.tvLastName.setText(student.getLname());
+        holder.tvFirstName.setText(student.getFname());
+    }
 
-        tvStudentId.setText(String.valueOf(student.getStudentId()));
-        tvLastName.setText(student.getLname());
-        tvFirstName.setText(student.getFname());
-        return view;
+    @Override
+    public int getItemCount() {
+        return students.size();
     }
 }
