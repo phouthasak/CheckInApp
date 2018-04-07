@@ -66,15 +66,16 @@ public class MainActivity extends AppCompatActivity{
 
         @Override
         public void onPageScrollStateChanged(int state) {
-            Log.e("onPageScrollStateChange", "state:" + state);
-            int currentPage = viewPager.getCurrentItem();
-            if (currentPage == 2 || currentPage == 0) {
-                previousState = currentState;
-                currentState = state;
-                if (previousState == 1 && currentState == 0) {
-                    viewPager.setCurrentItem(currentPage == 0 ? 2 : 0);
-                }
-            }
+//             Removed till I can find a nicer way to allow for wrap around
+//            Log.e("onPageScrollStateChange", "state:" + state);
+//            int currentPage = viewPager.getCurrentItem();
+//            if (currentPage == 2 || currentPage == 0) {
+//                previousState = currentState;
+//                currentState = state;
+//                if (previousState == 1 && currentState == 0) {
+//                    viewPager.setCurrentItem(currentPage == 0 ? 2 : 0);
+//                }
+//            }
 
         }
     };
