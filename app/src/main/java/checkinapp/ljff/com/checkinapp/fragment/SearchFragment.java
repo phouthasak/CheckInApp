@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import checkinapp.ljff.com.checkinapp.R;
@@ -24,11 +25,12 @@ import checkinapp.ljff.com.checkinapp.entity.Student;
  */
 
 public class SearchFragment extends Fragment{
-    private RecyclerView.Adapter adapter;
+    private StudentListViewAdapter adapter;
     private RecyclerView recyclerView;
     private SearchView searchBar;
     private View rootView;
     private AppDatabase database;
+    private List<Student> students;
 
     @Nullable
     @Override
@@ -37,7 +39,46 @@ public class SearchFragment extends Fragment{
         searchBar = rootView.findViewById(R.id.svSearchBar);
         database = Room.databaseBuilder(getActivity().getApplicationContext(), AppDatabase.class, "students").allowMainThreadQueries().build();
         populateList();
+
+        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                filter(s);
+                return false;
+            }
+        });
+
         return rootView;
+    }
+
+    private void filter(String text){
+        List<Student> filteredList = new ArrayList<Student>();
+        boolean inputIsNumber = false;
+        int studentId = 0;
+
+        try{
+            studentId = Integer.parseInt(text);
+            inputIsNumber = true;
+        }catch(NumberFormatException ex){
+            Log.e("CheckingQueryString", "Input is not an integer");
+        }
+
+        for(Student student: students){
+            if(student.getLname().toLowerCase().contains(text.toLowerCase()) || student.getFname().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(student);
+            }else if(inputIsNumber){
+                if(student.getStudentId() == studentId){
+                    filteredList.add(student);
+                }
+            }
+        }
+
+        adapter.filterList(filteredList);
     }
 
     private void populateList(){
@@ -64,7 +105,7 @@ public class SearchFragment extends Fragment{
 //        database.studentsDAO().addStudent(student2);
 //        database.studentsDAO().addStudent(student3);
 
-        List<Student> students = database.studentsDAO().getStudents();
+        students = database.studentsDAO().getStudents();
         Log.d("*****StudentCount*****", String.valueOf(students.size()));
         for(Student student: students){
             Log.d("StudentID", String.valueOf(student.getId()));

@@ -50,4 +50,9 @@ public class StudentListViewAdapter extends RecyclerView.Adapter<StudentListView
     public int getItemCount() {
         return students.size();
     }
+
+    public void filterList(List<Student> filteredList){
+        students = filteredList;
+        notifyDataSetChanged();
+    }
 }
