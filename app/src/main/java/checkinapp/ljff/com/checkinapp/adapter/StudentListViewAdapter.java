@@ -17,25 +17,45 @@ import checkinapp.ljff.com.checkinapp.entity.Student;
 
 public class StudentListViewAdapter extends RecyclerView.Adapter<StudentListViewAdapter.ViewHolder> {
     private List<Student> students;
-
+    private OnItemClickListener listener;
     public StudentListViewAdapter(List<Student> students) {
         this.students = students;
     }
 
+    public interface OnItemClickListener{
+        void onItemClicked(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener clickListener){
+        listener = clickListener;
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder{
         public TextView tvStudentId, tvLastName, tvFirstName;
-        public ViewHolder(View view){
+        public ViewHolder(View view, final OnItemClickListener onItemClickListener){
             super(view);
             tvStudentId = view.findViewById(R.id.tvStudentID);
             tvLastName = view.findViewById(R.id.tvLastName);
             tvFirstName = view.findViewById(R.id.tvFirstName);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(onItemClickListener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            onItemClickListener.onItemClicked(position);
+                        }
+                    }
+                }
+            });
         }
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
-        return new ViewHolder(view);
+        return new ViewHolder(view, listener);
     }
 
     @Override

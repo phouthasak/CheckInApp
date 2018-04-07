@@ -1,6 +1,7 @@
 package checkinapp.ljff.com.checkinapp.fragment;
 
 import android.arch.persistence.room.Room;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import checkinapp.ljff.com.checkinapp.R;
+import checkinapp.ljff.com.checkinapp.activity.ProfileActivity;
 import checkinapp.ljff.com.checkinapp.adapter.StudentListViewAdapter;
 import checkinapp.ljff.com.checkinapp.database.AppDatabase;
 import checkinapp.ljff.com.checkinapp.entity.Student;
@@ -101,6 +103,15 @@ public class SearchFragment extends Fragment{
         recyclerView.addItemDecoration(itemDecoration);
         adapter = new StudentListViewAdapter(students);
         recyclerView.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(new StudentListViewAdapter.OnItemClickListener(){
+            @Override
+            public void onItemClicked(int position) {
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                intent.putExtra("student", students.get(position));
+                getActivity().startActivity(intent);
+            }
+        });
     }
 
     private void recreateAndAddStudents() {
